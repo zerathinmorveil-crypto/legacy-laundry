@@ -106,24 +106,13 @@ body.login-page {
 .split-left {
     flex: 1;
     position: relative;
-    background: linear-gradient(135deg, #3a7d78, #1f3b57);
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     overflow: hidden;
-}
-
-/* ANIMATED BG */
-.split-left::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #667eea, #764ba2, #6ee7b7);
-    animation: moveBg 12s infinite linear;
-    filter: blur(120px);
-    opacity: 0.5;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
 }
 
 @keyframes moveBg {
@@ -172,7 +161,7 @@ body.login-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #3a7d78, #1f3b57);
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
 }
 
 /* GLASS FORM */
@@ -249,7 +238,7 @@ body.login-page {
     padding: 14px;
     border-radius: 12px;
     border: none;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #3b3b3b, #6b6b6b);
     color: white;
     font-weight: 600;
     transition: 0.3s;
