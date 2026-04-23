@@ -11,8 +11,8 @@ php artisan make:mode Transaction -mcr
 
 php artisan make:controller Customer/OrderController
 php artisan make:controller Customer/HomeController
-php artisan make:controller UserController
 
+php artisan make:controller UserController
 php artisan make:middleware RoleMiddleware 
 php artisan make:controller DashboardController
 php artisan make:migration update_status_enum_on_transactions_table --table=transactions
