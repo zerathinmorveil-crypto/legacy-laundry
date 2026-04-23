@@ -14,77 +14,80 @@
 @section('content')
 <div class="container-fluid">
     
-    {{-- STATS CARDS --}}
-    <div class="row mb-4">
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card modern-card gradient-primary">
-                <div class="card-body text-white">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                            <p class="card-subtitle">Total Transaksi</p>
-                            <h2 class="card-number"></h2>
-                            <p class="card-info">Semua Periode</p>
-                        </div>
-                        <div class="icon-wrapper bg-primary-light">
-                            <i class="fas fa-receipt text-primary"></i>
-                        </div>
+<div class="row mb-4">
+
+    {{-- Total Transaksi --}}
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card modern-card gradient-primary">
+            <div class="card-body text-white">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="card-subtitle">Total Transaksi</p>
+                        <h2 class="card-number">{{ $totalTransaksi }}</h2>
+                        <p class="card-info">Semua Periode</p>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- STATUS TRANSAKSI -->
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="form-label">Status Transaksi <span class="text-danger">*</span></label>
-                <select name="status" class="form-control @error('status') is-invalid @enderror" required>
-                    <option value="">Pilih Status</option>
-                    <option value="pending" {{ old('status') == 'pending' ? 'selected' : '' }}>Pending</option>
-                    <option value="dikonfirmasi" {{ old('status') == 'dikonfirmasi' ? 'selected' : '' }}>Dikonfirmasi</option>
-                    <option value="proses" {{ old('status') == 'proses' ? 'selected' : '' }}>Proses</option>
-                    <option value="selesai" {{ old('status') == 'selesai' ? 'selected' : '' }}>Selesai</option>
-                    <option value="diambil" {{ old('status') == 'diambil' ? 'selected' : '' }}>Diambil</option>
-                </select>
-                @error('status')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card modern-card gradient-warning">
-                <div class="card-body text-white">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                            <p class="card-subtitle">Proses</p>
-                            <h2 class="card-number"> </h2>
-                            <p class="card-info">Sedang Dikerjakan</p>
-                        </div>
-                        <div class="icon-wrapper bg-warning-light">
-                            <i class="fas fa-spinner text-warning"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card modern-card gradient-info">
-                <div class="card-body text-white">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                            <p class="card-subtitle">Pendapatan</p>
-                            <h2 class="card-number">Rp </h2>
-                            <p class="card-info">Total Penjualan</p>
-                        </div>
-                        <div class="icon-wrapper bg-info-light">
-                            <i class="fas fa-money-bill-wave text-info"></i>
-                        </div>
+                    <div class="icon-wrapper bg-primary-light">
+                        <i class="fas fa-receipt text-primary"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- Selesai --}}
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card modern-card gradient-success">
+            <div class="card-body text-white">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="card-subtitle">Selesai</p>
+                        <h2 class="card-number">{{ $totalSelesai }}</h2>
+                        <p class="card-info">Transaksi Selesai</p>
+                    </div>
+                    <div class="icon-wrapper bg-success-light">
+                        <i class="fas fa-check-circle text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Proses --}}
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card modern-card gradient-warning">
+            <div class="card-body text-white">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="card-subtitle">Proses</p>
+                        <h2 class="card-number">{{ $totalProses }}</h2>
+                        <p class="card-info">Sedang Dikerjakan</p>
+                    </div>
+                    <div class="icon-wrapper bg-warning-light">
+                        <i class="fas fa-spinner text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Pendapatan --}}
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card modern-card gradient-info">
+            <div class="card-body text-white">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="card-subtitle">Pendapatan</p>
+                        <h2 class="card-number">Rp {{ number_format($totalPendapatan, 0, ',', '.') }}</h2>
+                        <p class="card-info">Total Penjualan</p>
+                    </div>
+                    <div class="icon-wrapper bg-info-light">
+                        <i class="fas fa-money-bill-wave text-info"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     {{-- MODERN TABLE --}}
     <div class="row">
