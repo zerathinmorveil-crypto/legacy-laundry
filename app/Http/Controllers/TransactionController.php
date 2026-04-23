@@ -19,19 +19,30 @@ class TransactionController extends Controller
             })
             ->latest()
             ->paginate(10);
-
+    
         $pendingCount = Transaction::where('status', 'pending')
             ->where('sumber', 'customer')
             ->count();
-
+    
+        // Tambahkan ini ↓
+        $totalTransaksi  = Transaction::count();
+        $totalSelesai    = Transaction::where('status', 'selesai')->count();
+        $totalProses     = Transaction::where('status', 'proses')->count();
+        $totalPendapatan = Transaction::where('status', 'selesai')->sum('total');
+    
         $customers = Customer::all();
         $services = Service::all();
-
+    
         return view('transactions.index', compact(
             'transactions',
             'customers',
             'services',
-            'pendingCount'
+            'pendingCount',
+            // Tambahkan ini ↓
+            'totalTransaksi',
+            'totalSelesai',
+            'totalProses',
+            'totalPendapatan'
         ));
     }
 
