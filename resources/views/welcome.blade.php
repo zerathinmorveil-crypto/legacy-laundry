@@ -28,27 +28,11 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--text-dark);
+            color: white;
             min-height: 100vh;
-            background: #0f172a;
-            position: relative;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a2a2a);
         }
-
-        body::before {
-            content: '';
-            position: fixed;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
-            background: linear-gradient(45deg, #667eea, #764ba2, #2980d4, #6ee7b7);
-            animation: gradientMove 12s ease infinite;
-            filter: blur(80px);
-            opacity: 0.4;
-            z-index: 0;
-        }
-
+        
         /* ── NAVBAR ── */
         nav {
             background: rgba(255,255,255,0.08);
@@ -186,11 +170,11 @@
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 48px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            padding: 60px 48px;
+            display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 40px;
+            text-align: center;
             min-height: calc(100vh - 70px);
         }
 
@@ -511,114 +495,7 @@
             <a href="#service" class="btn-primary">More Info</a>
         </div>
 
-        {{-- Right: Illustration --}}
-        <div class="hero-illustration">
-            <svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg">
-                <!-- Background blob -->
-                <ellipse cx="300" cy="240" rx="210" ry="220" fill="white" opacity="0.55"/>
-
-                <!-- Shelf / wall unit -->
-                <rect x="310" y="60" width="140" height="14" rx="5" fill="#a8c4e0"/>
-                <rect x="318" y="74" width="34" height="40" rx="4" fill="#6ba3cf"/>
-                <rect x="357" y="74" width="22" height="40" rx="4" fill="#7fb5d8"/>
-                <rect x="384" y="74" width="26" height="40" rx="4" fill="#5490c2"/>
-                <!-- Detergent bottles on shelf -->
-                <rect x="320" y="50" width="14" height="22" rx="4" fill="#f97316"/>
-                <rect x="338" y="52" width="12" height="20" rx="4" fill="#2980d4"/>
-                <rect x="354" y="53" width="10" height="19" rx="4" fill="#34d399"/>
-
-                <!-- Washing machine body -->
-                <rect x="280" y="230" width="160" height="170" rx="18" fill="#2980d4"/>
-                <rect x="288" y="238" width="144" height="154" rx="14" fill="#1a5fa8"/>
-                <!-- Door -->
-                <circle cx="360" cy="315" r="55" fill="#4a9fd4"/>
-                <circle cx="360" cy="315" r="46" fill="#c2d8ef"/>
-                <circle cx="360" cy="315" r="38" fill="#5aaede"/>
-                <circle cx="360" cy="315" r="28" fill="#2980d4"/>
-                                <!-- Door shine -->
-                <ellipse cx="348" cy="302" rx="10" ry="7" fill="white" opacity="0.35" transform="rotate(-20 348 302)"/>
-                <!-- Controls -->
-                <circle cx="300" cy="248" r="6" fill="#f97316"/>
-                <rect x="312" y="243" width="30" height="10" rx="5" fill="#6ba3cf"/>
-                <!-- Feet -->
-                <rect x="300" y="398" width="20" height="12" rx="4" fill="#145089"/>
-                <rect x="400" y="398" width="20" height="12" rx="4" fill="#145089"/>
-
-                <!-- Stacked folded clothes (on machine top) -->
-                <rect x="290" y="210" width="80" height="14" rx="4" fill="#f97316"/>
-                <rect x="293" y="197" width="74" height="14" rx="4" fill="#34d399"/>
-                <rect x="296" y="184" width="68" height="14" rx="4" fill="#fbbf24"/>
-
-                <!-- Laundry basket (left floor) -->
-                <path d="M80 380 Q70 370 75 340 L145 340 Q150 370 140 380 Z" fill="#4a9fd4"/>
-                <rect x="73" y="338" width="76" height="10" rx="5" fill="#2980d4"/>
-                <!-- Clothes sticking out -->
-                <path d="M85 340 Q95 320 105 338" stroke="#f97316" stroke-width="8" fill="none" stroke-linecap="round"/>
-                <path d="M110 340 Q120 318 130 340" stroke="#34d399" stroke-width="7" fill="none" stroke-linecap="round"/>
-
-                <!-- Small orange basket (center floor) -->
-                <path d="M185 390 Q175 375 180 350 L240 350 Q245 375 235 390 Z" fill="#f97316" opacity="0.85"/>
-                <rect x="178" y="348" width="68" height="9" rx="4" fill="#ea6510"/>
-
-                <!-- Detergent bottle floor -->
-                <rect x="255" y="356" width="22" height="44" rx="6" fill="#fde68a"/>
-                <rect x="260" y="350" width="12" height="10" rx="3" fill="#fbbf24"/>
-
-                <!-- Laundry basket with clothes (right of machine) -->
-                <path d="M455 390 Q444 374 448 348 L510 348 Q515 374 504 390 Z" fill="#4a9fd4"/>
-                <rect x="446" y="346" width="70" height="10" rx="5" fill="#2980d4"/>
-                <path d="M460 348 Q470 328 480 348" stroke="#f97316" stroke-width="8" fill="none" stroke-linecap="round"/>
-                <path d="M484 348 Q494 325 504 348" stroke="#34d399" stroke-width="8" fill="none" stroke-linecap="round"/>
-
-                <!-- Floor line -->
-                <rect x="50" y="400" width="450" height="6" rx="3" fill="#a8c4e0" opacity="0.6"/>
-
-                <!-- Green leaf left -->
-                <ellipse cx="60" cy="350" rx="40" ry="55" fill="#4caf50" transform="rotate(25 60 350)"/>
-                <ellipse cx="40" cy="360" rx="28" ry="45" fill="#66bb6a" transform="rotate(-15 40 360)"/>
-
-                <!-- Green leaf right -->
-                <ellipse cx="490" cy="345" rx="38" ry="52" fill="#4caf50" transform="rotate(-20 490 345)"/>
-                <ellipse cx="510" cy="355" rx="26" ry="42" fill="#66bb6a" transform="rotate(12 510 355)"/>
-
-                <!-- Woman character -->
-                <!-- Body (jeans) -->
-                <rect x="165" y="290" width="50" height="100" rx="10" fill="#3a6ea8"/>
-                <!-- Legs -->
-                <rect x="165" y="365" width="22" height="45" rx="8" fill="#2d5a8a"/>
-                <rect x="193" y="365" width="22" height="45" rx="8" fill="#2d5a8a"/>
-                <!-- Shoes -->
-                <ellipse cx="176" cy="410" rx="16" ry="8" fill="#1a3a5c"/>
-                <ellipse cx="204" cy="410" rx="16" ry="8" fill="#1a3a5c"/>
-                <!-- Torso / shirt -->
-                <rect x="160" y="230" width="60" height="70" rx="12" fill="#f97316"/>
-                <!-- Arms -->
-                <rect x="140" y="235" width="24" height="55" rx="10" fill="#f97316"/>
-                <rect x="216" y="235" width="24" height="55" rx="10" fill="#f97316"/>
-                <!-- Hands -->
-                <ellipse cx="152" cy="295" rx="12" ry="10" fill="#f5cba7"/>
-                <ellipse cx="228" cy="295" rx="12" ry="10" fill="#f5cba7"/>
-                <!-- Head -->
-                <circle cx="190" cy="205" r="34" fill="#f5cba7"/>
-                <!-- Hair -->
-                <path d="M158 195 Q165 150 200 148 Q235 150 222 195 Q215 170 190 168 Q165 170 158 195Z" fill="#8b4513"/>
-                <path d="M222 195 Q240 220 225 240" stroke="#8b4513" stroke-width="14" fill="none" stroke-linecap="round"/>
-                <!-- Sunglasses -->
-                <rect x="170" y="200" width="20" height="12" rx="5" fill="#145089" opacity="0.85"/>
-                <rect x="196" y="200" width="20" height="12" rx="5" fill="#145089" opacity="0.85"/>
-                <line x1="190" y1="206" x2="196" y2="206" stroke="#145089" stroke-width="2"/>
-                <!-- Mouth -->
-                <path d="M182 220 Q190 228 198 220" stroke="#c0805a" stroke-width="2" fill="none" stroke-linecap="round"/>
-
-                <!-- Laundry basket held by woman -->
-                <path d="M135 260 Q128 248 130 228 L175 228 Q178 248 170 260 Z" fill="#f97316"/>
-                <rect x="127" y="226" width="52" height="9" rx="4" fill="#ea6510"/>
-                <!-- Colorful clothes in basket -->
-                <path d="M136 228 Q143 212 151 228" stroke="#34d399" stroke-width="6" fill="none" stroke-linecap="round"/>
-                <path d="M152 228 Q159 210 167 228" stroke="#3b82f6" stroke-width="6" fill="none" stroke-linecap="round"/>
-                <path d="M144 228 Q150 215 156 228" stroke="#fbbf24" stroke-width="5" fill="none" stroke-linecap="round"/>
-            </svg>
-        </div>
+        
 
     </div>
 </section>
