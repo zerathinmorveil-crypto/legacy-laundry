@@ -29,3 +29,10 @@ RegisteredUserController
 app
 seeders admin, database, service
 resource/views/customer/order
+
+apabila baru pasang :
+composer install
+php artisan serve
+copy .env.example .env--->secara bersamaan
+php artisan key:generate->--||--||--||--
+php artisan migrate
