@@ -104,23 +104,13 @@ body.login-page {
 }
 /* ===== BACKGROUND ANIMASI ===== */
 .login-wrapper {
-    height: 100vh;
+    position: fixed;
+    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    position: relative;
-    background: #0f172a;
-}
 
-.bg-animated {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #667eea, #764ba2, #6ee7b7, #60a5fa);
-    animation: gradientMove 12s ease infinite;
-    filter: blur(120px);
-    opacity: 0.5;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a2a2a);
 }
 
 @keyframes gradientMove {
