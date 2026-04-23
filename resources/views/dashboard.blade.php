@@ -12,73 +12,73 @@
 <div class="container-fluid">
     
     {{-- STATS CARDS WITH MODERN DESIGN --}}
-    <div class="row">
-        <!-- Total Transaksi Bulan Ini -->
+    <div class="row mb-4">
+        <!-- Total Transaksi -->
         <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card modern-card card-transaksi">
+            <div class="card modern-card gradient-primary">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex justify-content-between">
                         <div>
                             <p class="card-subtitle">Total Transaksi</p>
-                            <h2 class="card-number"></h2>
-                            <p class="card-info"> Selesai</p>
+                            <h2 class="card-number">{{ $totalTransaksi }}</h2>
+                            <p class="card-info">Selesai</p>
                         </div>
                         <div class="icon-wrapper bg-primary-light">
-                            <i class="fas fa-shopping-bag text-primary"></i>
+                            <i class="fas fa-shopping-bag"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    
         <!-- Sedang Diproses -->
         <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card modern-card card-proses">
+            <div class="card modern-card gradient-warning">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex justify-content-between">
                         <div>
                             <p class="card-subtitle">Sedang Diproses</p>
-                            <h2 class="card-number"></h2>
+                            <h2 class="card-number">{{ $proses }}</h2>
                             <p class="card-info">Active cucian</p>
                         </div>
                         <div class="icon-wrapper bg-warning-light">
-                            <i class="fas fa-sync-alt text-warning"></i>
+                            <i class="fas fa-sync-alt"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    
         <!-- Total Customer -->
         <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card modern-card card-customer">
+            <div class="card modern-card gradient-success">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex justify-content-between">
                         <div>
                             <p class="card-subtitle">Total Customer</p>
-                            <h2 class="card-number">10</h2>
+                            <h2 class="card-number">{{ $totalCustomer }}</h2>
                             <p class="card-info">Member</p>
                         </div>
                         <div class="icon-wrapper bg-success-light">
-                            <i class="fas fa-users text-success"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Pendapatan Bulan Ini -->
+    
+        <!-- Pendapatan -->
         <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card modern-card card-pendapatan">
+            <div class="card modern-card gradient-info">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex justify-content-between">
                         <div>
                             <p class="card-subtitle">Pendapatan</p>
-                            <h2 class="card-number">10Jt</h2>
+                            <h2 class="card-number">Rp {{ number_format($pendapatan, 0, ',', '.') }}</h2>
                             <p class="card-info">Bulan ini</p>
                         </div>
                         <div class="icon-wrapper bg-info-light">
-                            <i class="fas fa-chart-line text-info"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
                     </div>
                 </div>
@@ -116,110 +116,54 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="service-icon bg-primary">
-                                                <i class="fas fa-tshirt"></i>
-                                            </div>
-                                            <strong class="ml-2"></strong>
+                            
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="service-icon bg-primary">
+                                            <i class="fas fa-tshirt"></i>
                                         </div>
-                                    </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td>
+                                        <strong class="ml-2"> </strong>
+                                    </div>
+                                </td>
+                            
+                                <td>{{ $trx->customer->nama ?? '-' }}</td>
+                                <td>{{ $trx->service->nama ?? '-' }}</td>
+                                <td> Kg</td>
+                            
+                                <td>
+                                    <span class="badge badge-modern 
+                                        ">
                                         
-                                    </td>
-                                    <td>
+                                    </span>
+                                </td>
+                            
+                                <td>
+                                    <span class="badge badge-modern 
+                                        ">
                                         
-                                    </td>
-                                    <td style="width: 200px">
-                                       
-                                        <div class="d-flex align-items-center">
-                                            <span class="mr-2">%</span>
-                                            <div class="progress flex-grow-1">
-                                                <div class="progress-bar bg-primary" style="width: %"></div>
-                                            </div>
+                                    </span>
+                                </td>
+                            
+                                <td>
+                            
+                                    <div class="d-flex align-items-center">
+                                        <span class="mr-2">%</span>
+                                        <div class="progress flex-grow-1">
+                                            <div class="progress-bar bg-primary" style="width: 0%"></div>
                                         </div>
-                                    </td>
-                                </tr>
-                                
-                                
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td colspan="7" class="text-center py-4 text-muted">
+                                    Belum ada transaksi aktif
+                                </td>
+                            </tr>
+                          
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- STATISTIK & GRAFIK --}}
-    <div class="row mt-4">
-        <!-- Chart Pendapatan -->
-        <div class="col-lg-8">
-            <div class="card modern-chart-card">
-                <div class="card-header border-0">
-                    <h3 class="card-title">
-                        <i class="fas fa-chart-area mr-2"></i>
-                        Tren Pendapatan 7 Hari Terakhir
-                    </h3>
-                </div>
-                <div class="card-body">
-                    <canvas id="revenueChart" height="80"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quick Stats -->
-        <div class="col-lg-4">
-            <div class="card modern-stats-card">
-                <div class="card-header border-0">
-                    <h3 class="card-title">
-                        <i class="fas fa-chart-pie mr-2"></i>
-                        Ringkasan Hari Ini
-                    </h3>
-                </div>
-                <div class="card-body">
-                    <div class="stat-item">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="stat-label">Cucian Masuk</span>
-                            <span class="stat-value text-primary">belum diambil</span>
-                        </div>
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-primary" style="width: 65%"></div>
-                        </div>
-                    </div>
-
-                    <div class="stat-item mt-4">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="stat-label">Sedang Proses</span>
-                            <span class="stat-value text-warning">sedang diproses</span>
-                        </div>
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-warning" style="width: 45%"></div>
-                        </div>
-                    </div>
-
-                    <div class="stat-item mt-4">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="stat-label">Siap Diambil</span>
-                            <span class="stat-value text-success">siap diambil</span>
-                        </div>
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-success" style="width: 85%"></div>
-                        </div>
-                    </div>
-
-                    <div class="stat-item mt-4">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="stat-label">Total Layanan</span>
-                            <span class="stat-value text-info">total layanan</span>
-                        </div>
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-info" style="width: 100%"></div>
-                        </div>
                     </div>
                 </div>
             </div>
